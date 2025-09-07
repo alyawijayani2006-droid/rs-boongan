@@ -1,0 +1,599 @@
+/* Import Google Fonts for a clean, elegant look */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap');
+
+:root {
+    --primary-color: #008080; /* Dark Teal - Warna utama yang kuat dan cerah */
+    --secondary-color: #006666; /* Slightly darker teal */
+    --light-bg-color: #f0f8f8; /* Very light teal-gray */
+    --text-dark: #333;
+    --text-light: #fff;
+    --accent-color: #ffd700; /* Bright gold accent */
+    --card-bg-light: #ffffff;
+    --border-color: #e0e0e0;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--light-bg-color);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header and Navigation */
+.main-header {
+    background: var(--primary-color);
+    color: var(--text-light);
+    padding: 1.2rem 0; /* Padding lebih besar */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    margin: 0;
+    font-size: 2.2rem; /* Ukuran font lebih besar agar menonjol */
+    letter-spacing: 2px; /* Jarak antar huruf */
+    color: var(--accent-color); /* Warna emas agar sangat jelas */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Bayangan lebih kuat */
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 30px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: 400;
+    font-size: 1rem;
+    padding: 10px 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent-color);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    color: var(--accent-color);
+}
+
+.main-nav a:hover::after,
+.main-nav a.active::after {
+    transform: scaleX(1);
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    text-align: left;
+    color: var(--text-light);
+    height: 500px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(60%);
+}
+
+.hero-overlay {
+    position: relative;
+    z-index: 2;
+    padding-left: 10%;
+}
+
+.hero-overlay h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    margin: 0;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.hero-overlay p {
+    font-size: 1.8rem;
+    font-weight: 300;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* Visi & Misi Cards - Diperbarui */
+.vision-mission-section {
+    padding: 80px 0;
+    background-color: var(--light-bg-color);
+}
+
+.vision-mission-section .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+}
+
+.card {
+    background: var(--card-bg-light);
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    flex: 1 1 45%;
+    min-width: 300px;
+    text-align: left;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: var(--accent-color);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.card:hover::before {
+    transform: scaleX(1);
+}
+
+.card h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 15px;
+    display: inline-block;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.card-mission ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.card-mission li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 15px;
+    font-weight: 400;
+}
+
+.card-mission li::before {
+    content: '✓';
+    color: var(--accent-color);
+    font-weight: 700;
+    position: absolute;
+    left: 0;
+}
+
+/* Footer */
+.main-footer {
+    text-align: center;
+    padding: 25px 0;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    font-weight: 300;
+    box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form, Table and print styling */
+.page-content {
+    padding: 60px 0;
+}
+.form-section, .table-section {
+    margin-bottom: 40px;
+}
+.form-card {
+    max-width: 600px;
+    margin: 0 auto;
+}
+.form-card h2 {
+    margin-bottom: 30px;
+    color: var(--primary-color);
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: var(--card-bg-light);
+}
+.form-card button {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.form-card button:hover {
+    background-color: var(--secondary-color);
+}
+.table-responsive {
+    overflow-x: auto;
+}
+.table-card table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+.table-card th, .table-card td {
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    text-align: left;
+}
+.table-card th {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    font-weight: 700;
+}
+.table-card tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+.table-card button.edit-btn,
+.table-card button.delete-btn,
+.table-card button.print-btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 5px;
+}
+.table-card button.edit-btn {
+    background-color: #28a745;
+}
+.table-card button.edit-btn:hover {
+    background-color: #218838;
+}
+.table-card button.delete-btn {
+    background-color: #dc3545;
+}
+.table-card button.delete-btn:hover {
+    background-color: #c82333;
+}
+.table-card button.print-btn {
+    background-color: #007bff;
+}
+.table-card button.print-btn:hover {
+    background-color: #0069d9;
+}
+
+/* Print Styles for Hasil Lab */
+@media print {
+    body {
+        font-size: 12pt;
+        color: #000;
+        background-color: #fff;
+    }
+    .main-header, .main-nav, .page-content, .main-footer, .form-section, .table-section button {
+        display: none !important;
+    }
+    .print-area {
+        display: block !important;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    .header-print {
+        text-align: center;
+        border-bottom: 2px solid #000;
+        padding-bottom: 15px;
+        margin-bottom: 20px;
+    }
+    .header-print h1 {
+        margin: 0;
+        font-size: 24px;
+        color: #000;
+    }
+    .header-print p {
+        color: #333;
+    }
+    .info-section h2 {
+        color: #000;
+        margin-bottom: 15px;
+    }
+    .info-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 30px;
+    }
+    .info-table td, .info-table th {
+        padding: 8px 15px;
+        vertical-align: top;
+        border: none;
+        color: #000;
+    }
+    .lab-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 50px;
+    }
+    .lab-table th, .lab-table td {
+        border: 1px solid #000;
+        padding: 10px;
+        text-align: center;
+        color: #000;
+    }
+    .lab-table th {
+        background-color: #e9ecef;
+    }
+    .signature {
+        text-align: center;
+        margin-top: 50px;
+    }
+}
+/*jadwal dokter*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #008080;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.header {
+    background: linear-gradient(135deg, #008080 0%, #006666 100%); /* gradasi hijau-teal */
+    color: #ffd700; /* font kuning emas */
+    padding: 25px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2.2em;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #ffd700; /* font kuning emas */
+}
+
+.table-container {
+    overflow-x: auto;
+    margin: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+th {
+    background: #008080;
+    color: white;
+    padding: 15px 12px;
+    text-align: center;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-right: 1px solid rgba(255,255,255,0.2);
+}
+
+th:last-child {
+    border-right: none;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;
+    text-align: center;
+    vertical-align: middle;
+}
+
+td:last-child {
+    border-right: none;
+}
+
+.specialty-cell {
+    text-align: left;
+    font-weight: 500;
+    color: #374151;
+}
+
+.doctor-name {
+    color: #6b7280;
+    font-size: 13px;
+    font-style: italic;
+}
+
+.time-cell {
+    font-size: 12px;
+    line-height: 1.4;
+    color: #4b5563;
+}
+
+.special-note {
+    color: #9ca3af;
+    font-style: italic;
+    font-size: 11px;
+}
+
+tr:nth-child(even) {
+    background-color: #f9fafb;
+}
+
+tr:hover {
+    background-color: #f3f4f6;
+    transform: scale(1.001);
+    transition: all 0.2s ease;
+}
+
+.no-cell {
+    background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%);
+    font-weight: 600;
+    color: #374151;
+    width: 50px;
+}
+
+.available {
+    background-color: #d1fae5;
+    color: #065f46;
+    font-weight: 500;
+}
+
+.appointment {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.unavailable {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+@media (max-width: 768px) {
+    .container {
+        margin: 10px;
+        border-radius: 10px;
+    }
+    
+    .header {
+        padding: 20px 15px;
+    }
+    
+    .header h1 {
+        font-size: 1.8em;
+    }
+    
+    table {
+        font-size: 12px;
+    }
+    
+    th, td {
+        padding: 10px 8px;
+    }
+    
+    .time-cell {
+        font-size: 11px;
+    }
+}
+
+.feedback-btn {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    border: none;
+    padding: 15px 8px;
+    border-radius: 25px 0 0 25px;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 1px;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+    transition: all 0.3s ease;
+}
+
+.feedback-btn:hover {
+    transform: translateY(-50%) translateX(-5px);
+    box-shadow: 0 15px 30px rgba(16, 185, 129, 0.4);
+}
+
+.active {
+    background-color: #dbeafe !important;
+    border-left: 4px solid #008080;
+    transform: scale(1.002);
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.current-time {
+    animation: pulse 2s infinite;
+    background-color: #fbbf24 !important;
+    color: #92400e !important;
+    font-weight: bold;
+}
